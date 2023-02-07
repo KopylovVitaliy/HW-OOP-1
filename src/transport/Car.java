@@ -60,20 +60,14 @@ public class Car extends Transport{
 
     @Override
     public String toString() {
-        return "Car{" + "brand='" + getBrand() + '\'' +
-                ", model='" + getModel() + '\'' +
-                ", year=" + getYear() +
-                ", country='" + getCountry() + '\'' +
-                ", color='" + getColor() + '\'' +
-                ", maxSpeed=" + getMaxSpeed() +
-                " key=" + key +
-                ", engineVolume=" + engineVolume +
-                ", bodyType='" + bodyType + '\'' +
-                ", registrationNumber='" + registrationNumber + '\'' +
-                ", numberOfSeats=" + numberOfSeats +
-                ", transmission='" + transmission + '\'' +
-                ", wheels='" + wheels + '\'' +
-                '}';
+        return super.toString() +
+                " способ доступа - " + key + " " +
+                ", объём двигателя - " + engineVolume +
+                ", кузов - " + bodyType + " " +
+                ", регистрационный номер - " + registrationNumber + " " +
+                ", количество мест - " + numberOfSeats +
+                ", коробка передач - " + transmission + " " +
+                ", резина -'" + wheels;
     }
 
     public void replaceWheels(int month) {
