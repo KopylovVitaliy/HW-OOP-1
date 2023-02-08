@@ -1,20 +1,14 @@
 package transport;
 
-public class Transport {
+public abstract class Transport implements Competing{
     private final String brand;
     private final String model;
-    private final int year;
-    private final String country;
-    private String color;
-    private int maxSpeed;
+    private final double engineCapacity;
 
-    public Transport(String brand, String model, int year, String country, String color, int maxSpeed) {
+    public Transport(String brand, String model, double engineCapacity) {
         this.brand = (brand == null || brand.isEmpty() ? "дефолт" : brand);
         this.model = (model == null || model.isEmpty() ? "дефолт" : model);
-        this.color = (color == null || color.isEmpty() ? "белый" : color);
-        this.year = (year <= 0 ? 2000 : year);
-        this.country = (country == null ? "дефолт" : country);
-        this.maxSpeed = (maxSpeed <= 0 ? 100 : maxSpeed);
+        this.engineCapacity = (engineCapacity <= 0 ? 2.0 : engineCapacity);
     }
 
     public String getBrand() {
@@ -25,44 +19,18 @@ public class Transport {
         return model;
     }
 
-    public int getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public int getMaxSpeed() {
-        return maxSpeed;
-    }
-
-    public void setColor(String color) {
-        if(color == null || color.isEmpty()){
-            color = "белый";
-        }
-        this.color = color;
-    }
-
-    public void setMaxSpeed(int maxSpeed) {
-        if((maxSpeed <= 0)){
-            maxSpeed = 100;
-        }
-        this.maxSpeed = maxSpeed;
+    public double getEngineCapacity() {
+        return engineCapacity;
     }
 
     @Override
     public String toString() {
-        return "Автомобиль: " +
-                "Марка - " + brand + " " +
-                ", модель - " + model + " " +
-                ", год выпуска - " + year +
-                ", страна производитель - " + country + " " +
-                ", цвет - " + color + " " +
-                ", максимальная скорость - " + maxSpeed;
+        return "марка -'" + brand + '\'' +
+                ", модель -'" + model + '\'' +
+                ", объём двигателя - " + engineCapacity;
     }
+
+    public abstract void startMove();
+
+    public abstract void finishMove();
 }
