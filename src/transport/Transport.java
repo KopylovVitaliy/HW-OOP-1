@@ -1,14 +1,26 @@
 package transport;
 
-public abstract class Transport implements Competing{
+import driver.Driver;
+
+public abstract class Transport<T extends Driver> implements Competing {
     private final String brand;
     private final String model;
     private final double engineCapacity;
+    private T driver;
 
-    public Transport(String brand, String model, double engineCapacity) {
+    public Transport(String brand, String model, double engineCapacity, T driver) {
         this.brand = (brand == null || brand.isEmpty() ? "дефолт" : brand);
         this.model = (model == null || model.isEmpty() ? "дефолт" : model);
         this.engineCapacity = (engineCapacity <= 0 ? 2.0 : engineCapacity);
+        setDriver(driver);
+    }
+
+    public T getDriver() {
+        return driver;
+    }
+
+    public void setDriver(T driver) {
+        this.driver = driver;
     }
 
     public String getBrand() {
@@ -33,4 +45,7 @@ public abstract class Transport implements Competing{
     public abstract void startMove();
 
     public abstract void finishMove();
+    public void printInfo() {
+        System.out.println("водитель" + getDriver() + " управляет автомобилем" + getBrand() + " и будет участвовать в заезде");
+    }
 }
