@@ -33,13 +33,11 @@ public class Car extends Transport<DriverB> {
                     " ";
         }
 
-        public String getBodyType() {
-            return bodyType;
-        }
+
     }
 
 
-    private final BodyType bodyType;
+    BodyType bodyType;
 
 
     public Car(String brand, String model, double engineCapacity, DriverB driver, BodyType bodyType) {
@@ -86,6 +84,10 @@ public class Car extends Transport<DriverB> {
 
     public BodyType getBodyType() {
         return bodyType;
+    }
+
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
     }
 }
 
