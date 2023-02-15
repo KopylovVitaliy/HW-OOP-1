@@ -82,6 +82,10 @@ public class Truck extends Transport<DriverC> {
 
     @Override
     public void printType() {
+        if(getType() != null){
         System.out.println(getType());
+    } else {
+            System.out.println("Данных по транспортному средству недостаточно");}
     }
+
 }

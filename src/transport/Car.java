@@ -4,7 +4,7 @@ import driver.DriverB;
 
 
 public class Car extends Transport<DriverB> {
-   public enum BodyType {
+    public enum BodyType {
         SEDAN("Седан"),
         HATCHBACK("Хэтчбэк"),
         COUPE("Купе"),
@@ -16,9 +16,7 @@ public class Car extends Transport<DriverB> {
         MINIVAN("Минивен");
 
 
-
         private String bodyType;
-
 
 
         BodyType(String bodyType) {
@@ -93,9 +91,14 @@ public class Car extends Transport<DriverB> {
         this.bodyType = bodyType;
     }
 
+
     @Override
     public void printType() {
-        System.out.println(getType());
+        if (getType() != null) {
+            System.out.println(getType());
+        } else {
+            System.out.println("Данных по транспортному средству недостаточно");
+        }
     }
 }
 

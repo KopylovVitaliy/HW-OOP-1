@@ -44,19 +44,13 @@ public class Main {
         printMass(buses);
         printMass(trucks);
         trucks[3].pitStop();
-        System.out.println(cars[1].getBodyType());
-        System.out.println(trucks[3].getBodyType());
-        System.out.println(buses[2].getBodyType());
-        trucks[1].printType();
-        cars[1].printType();
-        buses[1].printType();
     }
 
     public static void printMass(Transport<?>[] transports) {
         for (Transport<?> transport : transports) {
             System.out.println("водитель: " + transport.getDriver().getDriverName() + " "
                     + transport.getDriver().getClass() + ", управляет автомобилем: "
-                    + transport.getBrand() + " " + transport.getModel() +  " и будет участвовать в заезде");
+                    + transport.getBrand() + " " + transport.getModel() + " вид транспорта: "+ transport.getType() + " и будет участвовать в заезде");
         }
     }
 }
