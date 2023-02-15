@@ -6,8 +6,41 @@ import java.util.Objects;
 
 
 public class Car extends Transport<DriverB> {
+   public enum BodyType {
+        SEDAN("Седан"),
+        HATCHBACK("Хэтчбэк"),
+        COUPE("Купе"),
+        ESTATE("Уневерсал"),
+        SUV("Внедорожник"),
+        CROSSOVER("Кроссовер"),
+        PICKUP("Пикап"),
+        VAN("Фургон"),
+        MINIVAN("Минивен");
+
+
+
+        private String bodyType;
+
+
+
+        BodyType(String bodyType) {
+            this.bodyType = bodyType;
+        }
+
+        @Override
+        public String toString() {
+            return ", тип кузова: " + bodyType +
+                    " ";
+        }
+
+        public String getBodyType() {
+            return bodyType;
+        }
+    }
+
 
     private final BodyType bodyType;
+
 
     public Car(String brand, String model, double engineCapacity, DriverB driver, BodyType bodyType) {
         super(brand, model, engineCapacity, driver);
@@ -55,37 +88,5 @@ public class Car extends Transport<DriverB> {
         return bodyType;
     }
 }
- enum BodyType {
-    SEDAN("Седан"),
-    HATCHBACK("Хэтчбэк"),
-    COUPE("Купе"),
-    ESTATE("Уневерсал"),
-    SUV("Внедорожник"),
-    CROSSOVER("Кроссовер"),
-    PICKUP("Пикап"),
-    VAN("Фургон"),
-    MINIVAN("Минивен");
-
-
-
-    private String bodyType;
-
-
-
-    BodyType(String bodyType) {
-        this.bodyType = bodyType;
-    }
-
-    @Override
-    public String toString() {
-        return ", тип кузова: " + bodyType +
-                " ";
-    }
-
-     public String getBodyType() {
-         return bodyType;
-     }
- }
-
 
 
