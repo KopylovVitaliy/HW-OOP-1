@@ -52,6 +52,15 @@ public class Bus extends Transport<DriverD> {
     }
 
     @Override
+    public Type getType() {
+        return Type.BUS;
+    }
+    @Override
+    public void printType() {
+        System.out.println(getType());
+    }
+
+    @Override
     public String toString() {
         return "Автобус: " + super.toString();
     }

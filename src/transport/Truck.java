@@ -5,6 +5,7 @@ import driver.DriverC;
 public class Truck extends Transport<DriverC> {
     BodyType bodyType;
 
+
     public enum BodyType {
         N1(null, 3.5F),
         N2(3.5F, 12F),
@@ -73,5 +74,14 @@ public class Truck extends Transport<DriverC> {
         int maxBound = 160;
         int maxSpeed = (int) (minBound + (maxBound - minBound) * Math.random());
         System.out.println("Максимальная скорость у грузовика = " + maxSpeed + " км/ч");
+    }
+    @Override
+    public Type getType() {
+        return Type.TRUCK;
+    }
+
+    @Override
+    public void printType() {
+        System.out.println(getType());
     }
 }

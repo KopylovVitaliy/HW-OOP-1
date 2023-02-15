@@ -2,8 +2,6 @@ package transport;
 
 import driver.DriverB;
 
-import java.util.Objects;
-
 
 public class Car extends Transport<DriverB> {
    public enum BodyType {
@@ -56,6 +54,11 @@ public class Car extends Transport<DriverB> {
     }
 
     @Override
+    public Type getType() {
+        return Type.CAR;
+    }
+
+    @Override
     public String toString() {
         return "Легковой автомобиль: " + super.toString() + " " + bodyType;
     }
@@ -88,6 +91,11 @@ public class Car extends Transport<DriverB> {
 
     public void setBodyType(BodyType bodyType) {
         this.bodyType = bodyType;
+    }
+
+    @Override
+    public void printType() {
+        System.out.println(getType());
     }
 }
 
