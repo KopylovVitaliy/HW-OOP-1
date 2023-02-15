@@ -3,8 +3,9 @@ package transport;
 import driver.DriverD;
 
 public class Bus extends Transport<DriverD> {
-    public Bus(String brand, String model, double engineCapacity, DriverD driver) {
+    public Bus(String brand, String model, double engineCapacity, DriverD driver ) {
         super(brand, model, engineCapacity, driver);
+
     }
 
     @Override

@@ -1,6 +1,7 @@
 import driver.*;
 import transport.*;
 
+
 public class Main {
 
     public static void main(String[] args) {
@@ -20,10 +21,10 @@ public class Main {
         DriverD driverD4 = new DriverD("Сидоров Иван Иванович", true, 14);
 
         Car[] cars = new Car[4];
-        cars[0] = new Car("Audi", "A8 50 L TDI quattro", 3.0, driverB1);
-        cars[1] = new Car("BMW", "Z8", 0, driverB2);
-        cars[2] = new Car("Kia", "Sportage 4-го поколения", 2.4, driverB3);
-        cars[3] = new Car("Hyundai", "Avante", 1.6, driverB4);
+        cars[0] = new Car("Audi", "A8 50 L TDI quattro", 3.0, driverB1, transport.Car.BodyType.SEDAN  );
+        cars[1] = new Car("BMW", "Z8", 0, driverB2, Car.BodyType.HATCHBACK);
+        cars[2] = new Car("Kia", "Sportage 4-го поколения", 2.4, driverB3, Car.BodyType.COUPE);
+        cars[3] = new Car("Hyundai", "Avante", 1.6, driverB4, BodyType.SEDAN);
 
         Bus[] buses = new Bus[4];
         buses[0] = new Bus("Волжанин", "городской", 3.0, driverD1);
@@ -43,13 +44,14 @@ public class Main {
         printMass(buses);
         printMass(trucks);
         trucks[3].pitStop();
+        System.out.println(cars[1].getBodyType());
     }
 
     public static void printMass(Transport<?>[] transports) {
         for (Transport<?> transport : transports) {
             System.out.println("водитель: " + transport.getDriver().getDriverName() + " "
                     + transport.getDriver().getClass() + ", управляет автомобилем: "
-                    + transport.getBrand() + " " + transport.getModel() + " и будет участвовать в заезде");
+                    + transport.getBrand() + " " + transport.getModel()  +  " и будет участвовать в заезде");
         }
     }
 }
