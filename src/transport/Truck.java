@@ -88,4 +88,9 @@ public class Truck extends Transport<DriverC> {
             System.out.println("Данных по транспортному средству недостаточно");}
     }
 
+    @Override
+    public void passDiagnostics(){
+        System.out.println("Грузовик " + getBrand() + " " + getModel() +  " проходит диагностику");
+    }
+
 }

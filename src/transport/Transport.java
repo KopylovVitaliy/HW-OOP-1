@@ -52,6 +52,7 @@ public abstract class Transport<T extends Driver> implements Competing {
         return this.type;
     };
     public abstract void printType();
+    public abstract void passDiagnostics() throws TransportTypeException;
     public void printInfo() {
         System.out.println("водитель" + getDriver() + " управляет автомобилем" + getBrand() + " и будет участвовать в заезде");
     }
