@@ -21,7 +21,7 @@ public class Truck extends Transport<DriverC> {
 
         @Override
         public String toString() {
-            return  (minMass == null ? " "  : " minMass= " + String.valueOf(minMass)) +
+            return (minMass == null ? " " : " minMass= " + String.valueOf(minMass)) +
                     (maxMass == null ? " " : " maxMass= " + String.valueOf(maxMass)) +
                     '}';
         }
@@ -75,6 +75,7 @@ public class Truck extends Transport<DriverC> {
         int maxSpeed = (int) (minBound + (maxBound - minBound) * Math.random());
         System.out.println("Максимальная скорость у грузовика = " + maxSpeed + " км/ч");
     }
+
     @Override
     public Type getType() {
         return Type.TRUCK;
@@ -82,15 +83,16 @@ public class Truck extends Transport<DriverC> {
 
     @Override
     public void printType() {
-        if(getType() != null){
-        System.out.println(getType());
-    } else {
-            System.out.println("Данных по транспортному средству недостаточно");}
+        if (getType() != null) {
+            System.out.println(getType());
+        } else {
+            System.out.println("Данных по транспортному средству недостаточно");
+        }
     }
 
     @Override
-    public void passDiagnostics(){
-        System.out.println("Грузовик " + getBrand() + " " + getModel() +  " проходит диагностику");
+    public void passDiagnostics() {
+        System.out.println("Грузовик " + getBrand() + " " + getModel() + " проходит диагностику");
     }
 
 }

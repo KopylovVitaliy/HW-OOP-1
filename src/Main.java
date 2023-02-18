@@ -50,6 +50,7 @@ public class Main {
         checkTransportDiagnostic(trucks[1]);
         checkTransportDiagnostic(cars[1]);
         checkTransportDiagnostic(buses[1]);
+        checkTransportDiagnostic(buses[3]);
         checkTransportDiagnostic(cars[1]);
         checkTransportDiagnostic(trucks[3]);
         checkTransportDiagnostic(cars[2]);
@@ -59,18 +60,20 @@ public class Main {
         for (Transport<?> transport : transports) {
             System.out.println("водитель: " + transport.getDriver().getDriverName() + " "
                     + transport.getDriver().getClass() + ", управляет автомобилем: "
-                    + transport.getBrand() + " " + transport.getModel() + " вид транспорта: " + transport.getType() + " и будет участвовать в заезде");
+                    + transport.getBrand() + " " + transport.getModel() + " вид транспорта: " + transport.getType() +
+                    " и будет участвовать в заезде");
         }
     }
-    public static void checkTransportDiagnostic(Transport<?> transports){
 
-        if(transports.getType().equals(Type.BUS)){
+    public static void checkTransportDiagnostic(Transport<?> transports) {
+
+        if (transports.getType().equals(Type.BUS)) {
             try {
                 transports.passDiagnostics();
             } catch (TransportTypeException e) {
                 System.out.println("Автобусам не нужно проходить диагностику");
             }
-        } else{
+        } else {
             try {
                 transports.passDiagnostics();
             } catch (TransportTypeException e) {

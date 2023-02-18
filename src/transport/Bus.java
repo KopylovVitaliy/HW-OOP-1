@@ -67,7 +67,7 @@ public class Bus extends Transport<DriverD> {
 
     @Override
     public void passDiagnostics() throws TransportTypeException {
-     throw new TransportTypeException();
+        throw new TransportTypeException();
     }
 
     @Override
