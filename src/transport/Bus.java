@@ -66,6 +66,11 @@ public class Bus extends Transport<DriverD> {
     }
 
     @Override
+    public void passDiagnostics() throws TransportTypeException {
+        throw new TransportTypeException();
+    }
+
+    @Override
     public String toString() {
         return "Автобус: " + super.toString();
     }
