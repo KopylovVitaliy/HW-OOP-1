@@ -2,6 +2,9 @@ package transport;
 
 import driver.DriverB;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Car extends Transport<DriverB> {
     public enum BodyType {
@@ -32,13 +35,13 @@ public class Car extends Transport<DriverB> {
 
     }
 
-
     BodyType bodyType;
 
 
-    public Car(String brand, String model, double engineCapacity, DriverB driver, BodyType bodyType) {
-        super(brand, model, engineCapacity, driver);
+    public Car(String brand, String model, double engineCapacity, DriverB driver, BodyType bodyType, Mechaniс mechaniс) {
+        super(brand, model, engineCapacity, driver, mechaniс);
         this.bodyType = bodyType;
+
     }
 
     @Override
@@ -103,7 +106,7 @@ public class Car extends Transport<DriverB> {
 
     @Override
     public void passDiagnostics() {
-        System.out.println("Автомобиль " + getBrand() + " " + getModel() + " проходит диагностику");
+        System.out.println("Автомобиль " + getBrand() + " " + getModel() + " проходит диагностику.");
     }
 }
 

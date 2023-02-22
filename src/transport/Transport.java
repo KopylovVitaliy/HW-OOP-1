@@ -2,6 +2,8 @@ package transport;
 
 import driver.Driver;
 
+import java.util.List;
+
 public abstract class Transport<T extends Driver> implements Competing {
     private final String brand;
     private final String model;
@@ -9,12 +11,20 @@ public abstract class Transport<T extends Driver> implements Competing {
     private T driver;
     private Type type;
 
+    private List<Mechaniс> mechaniсsList;
+    Mechaniс mechaniс;
 
-    public Transport(String brand, String model, double engineCapacity, T driver) {
+
+    public Transport(String brand, String model, double engineCapacity, T driver, Mechaniс mechaniс) {
         this.brand = (brand == null || brand.isEmpty() ? "дефолт" : brand);
         this.model = (model == null || model.isEmpty() ? "дефолт" : model);
         this.engineCapacity = (engineCapacity <= 0 ? 2.0 : engineCapacity);
         setDriver(driver);
+        this.mechaniс = mechaniс;
+    }
+
+    public Mechaniс getMechaniс() {
+        return mechaniс;
     }
 
     public T getDriver() {
