@@ -37,7 +37,6 @@ public class Mechaniс {
     @Override
     public String toString() {
         return "Механник: " + name  +
-                ", из компании: " + company  +
-                '}';
+                ", из компании: " + company;
     }
 }

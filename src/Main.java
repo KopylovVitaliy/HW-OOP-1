@@ -36,22 +36,22 @@ public class Main {
         mechaniсList.add(mechaniс4);
 
         Car[] cars = new Car[4];
-        cars[0] = new Car("Audi", "A8 50 L TDI quattro", 3.0, driverB1, Car.BodyType.SEDAN, mechaniсList.get(1));
-        cars[1] = new Car("BMW", "Z8", 0, driverB2, Car.BodyType.HATCHBACK, mechaniсList.get(0));
-        cars[2] = new Car("Kia", "Sportage 4-го поколения", 2.4, driverB3, Car.BodyType.COUPE, mechaniсList.get(1));
-        cars[3] = new Car("Hyundai", "Avante", 1.6, driverB4, Car.BodyType.SEDAN, mechaniсList.get(0));
+        cars[0] = new Car("Audi", "A8 50 L TDI quattro", 3.0, driverB1, Car.BodyType.SEDAN, mechaniсList);
+        cars[1] = new Car("BMW", "Z8", 0, driverB2, Car.BodyType.HATCHBACK, mechaniсList);
+        cars[2] = new Car("Kia", "Sportage 4-го поколения", 2.4, driverB3, Car.BodyType.COUPE, mechaniсList);
+        cars[3] = new Car("Hyundai", "Avante", 1.6, driverB4, Car.BodyType.SEDAN, mechaniсList);
 
         Bus[] buses = new Bus[4];
-        buses[0] = new Bus("Волжанин", "городской", 3.0, driverD1, Bus.BodyType.LARGE, mechaniсList.get(2));
-        buses[1] = new Bus("BMW", "120", 4.2, driverD2, Bus.BodyType.VERY_SMALL, mechaniсList.get(2));
-        buses[2] = new Bus("Mercedes", "s12", 5.0, driverD3, Bus.BodyType.SMALL, mechaniсList.get(2));
-        buses[3] = new Bus("Mercedes", "s25", 5.5, driverD4, Bus.BodyType.VERY_LARGE, mechaniсList.get(2));
+        buses[0] = new Bus("Волжанин", "городской", 3.0, driverD1, Bus.BodyType.LARGE, mechaniсList);
+        buses[1] = new Bus("BMW", "120", 4.2, driverD2, Bus.BodyType.VERY_SMALL, mechaniсList);
+        buses[2] = new Bus("Mercedes", "s12", 5.0, driverD3, Bus.BodyType.SMALL, mechaniсList);
+        buses[3] = new Bus("Mercedes", "s25", 5.5, driverD4, Bus.BodyType.VERY_LARGE, mechaniсList);
 
         Truck[] trucks = new Truck[4];
-        trucks[0] = new Truck("Volvo", "North", 12.8, driverC1, Truck.BodyType.N2, mechaniсList.get(3));
-        trucks[1] = new Truck("Mercedes", "Europe", 14.2, driverC2, Truck.BodyType.N2, mechaniсList.get(3));
-        trucks[2] = new Truck("Mercedes", "S12", 15.6, driverC3, Truck.BodyType.N3, mechaniсList.get(3));
-        trucks[3] = new Truck("Volvo", "Europe North", 16.1, driverC4, Truck.BodyType.N1, mechaniсList.get(3));
+        trucks[0] = new Truck("Volvo", "North", 12.8, driverC1, Truck.BodyType.N2, mechaniсList);
+        trucks[1] = new Truck("Mercedes", "Europe", 14.2, driverC2, Truck.BodyType.N2, mechaniсList);
+        trucks[2] = new Truck("Mercedes", "S12", 15.6, driverC3, Truck.BodyType.N3, mechaniсList);
+        trucks[3] = new Truck("Volvo", "Europe North", 16.1, driverC4, Truck.BodyType.N1, mechaniсList);
 
 
         List<Transport<?>> transportsList = new ArrayList<>();
@@ -83,7 +83,6 @@ public class Main {
         checkTransportDiagnostic(cars[1]);
         checkTransportDiagnostic(trucks[3]);
         checkTransportDiagnostic(cars[2]);
-        cars[2].getMechaniс().fixCar();
         treansportInfo(buses[2]);
         ServiceStation serviceStation = new ServiceStation();
         serviceStation.addAutoQueue(cars[1]);
@@ -118,7 +117,6 @@ public class Main {
         } else {
             try {
                 transports.passDiagnostics();
-                transports.getMechaniс().performMaintenance();
             } catch (TransportTypeException e) {
                 System.out.println(" ");
             }
@@ -127,6 +125,6 @@ public class Main {
 
     public static void treansportInfo(Transport<?> transports) {
         System.out.println(transports.getBrand() + " " + transports.getModel() + " Водитель: " +
-                transports.getDriver().getDriverName() + ", Механник: " + transports.getMechaniс().getName());
+                transports.getDriver().getDriverName() + " " + transports.getMechaniсsList() );
     }
 }

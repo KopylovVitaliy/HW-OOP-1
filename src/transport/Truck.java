@@ -29,8 +29,8 @@ public class Truck extends Transport<DriverC> {
         }
     }
 
-    public Truck(String brand, String model, double engineCapacity, DriverC driver, BodyType bodyType, Mechaniс mechaniс) {
-        super(brand, model, engineCapacity, driver, mechaniс);
+    public Truck(String brand, String model, double engineCapacity, DriverC driver, BodyType bodyType, List<Mechaniс> mechaniсsList) {
+        super(brand, model, engineCapacity, driver, mechaniсsList);
         this.bodyType = bodyType;
     }
 

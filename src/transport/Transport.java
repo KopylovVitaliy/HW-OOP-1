@@ -12,19 +12,18 @@ public abstract class Transport<T extends Driver> implements Competing {
     private Type type;
 
     private List<Mechaniс> mechaniсsList;
-    Mechaniс mechaniс;
 
 
-    public Transport(String brand, String model, double engineCapacity, T driver, Mechaniс mechaniс) {
+    public Transport(String brand, String model, double engineCapacity, T driver, List<Mechaniс> mechaniсsList) {
         this.brand = (brand == null || brand.isEmpty() ? "дефолт" : brand);
         this.model = (model == null || model.isEmpty() ? "дефолт" : model);
         this.engineCapacity = (engineCapacity <= 0 ? 2.0 : engineCapacity);
         setDriver(driver);
-        this.mechaniс = mechaniс;
+        this.mechaniсsList = mechaniсsList;
     }
 
-    public Mechaniс getMechaniс() {
-        return mechaniс;
+    public List<Mechaniс> getMechaniсsList() {
+        return mechaniсsList;
     }
 
     public T getDriver() {
