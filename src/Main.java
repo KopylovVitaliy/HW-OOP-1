@@ -1,8 +1,7 @@
 import driver.*;
 import transport.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 public class Main {
@@ -35,13 +34,6 @@ public class Main {
         mechaniсList.add(mechaniс2);
         mechaniсList.add(mechaniс3);
         mechaniсList.add(mechaniс4);
-
-
-//        List<Mechaniс> mechaniсsList = new ArrayList<>();
-//        mechaniсsList.add((Mechaniс) carMechaniсsList);
-//        mechaniсsList.add((Mechaniс) busMechaniсsList);
-//        mechaniсsList.add((Mechaniс) truckMechaniсsList);
-
 
         Car[] cars = new Car[4];
         cars[0] = new Car("Audi", "A8 50 L TDI quattro", 3.0, driverB1, Car.BodyType.SEDAN, mechaniсList.get(1));
@@ -93,8 +85,17 @@ public class Main {
         checkTransportDiagnostic(cars[2]);
         cars[2].getMechaniс().fixCar();
         treansportInfo(buses[2]);
-
-
+        ServiceStation serviceStation = new ServiceStation();
+        serviceStation.addAutoQueue(cars[1]);
+        serviceStation.addAutoQueue(cars[2]);
+        serviceStation.addAutoQueue(cars[3]);
+        serviceStation.addAutoQueue(cars[0]);
+        serviceStation.addAutoQueue(buses[2]);
+        serviceStation.addAutoQueue(buses[0]);
+        serviceStation.addAutoQueue(buses[3]);
+        serviceStation.addAutoQueue(trucks[1]);
+        serviceStation.addAutoQueue(trucks[2]);
+        serviceStation.carryOutMaintenance();
     }
 
     public static void printMass(Transport<?>[] transports) {
