@@ -1,6 +1,8 @@
 import driver.*;
 import transport.*;
 
+import java.util.*;
+
 
 public class Main {
 
@@ -21,23 +23,50 @@ public class Main {
         DriverD driverD3 = new DriverD("Крюков Иван Иванович", true, 24);
         DriverD driverD4 = new DriverD("Сидоров Иван Иванович", true, 14);
 
+        Mechaniс mechaniс1 = new Mechaniс("Сидоров Пётр", "ProMechanics");
+        Mechaniс mechaniс2 = new Mechaniс("Венцов Сергей", "F1 mech. company");
+        Mechaniс mechaniс3 = new Mechaniс("Кривко Руслан", "Bus mechanics");
+        Mechaniс mechaniс4 = new Mechaniс("Петров Василий", "Truck mehPro");
+
+
+        List<Mechaniс> mechaniсList = new ArrayList<>();
+        mechaniсList.add(mechaniс1);
+        mechaniсList.add(mechaniс2);
+        mechaniсList.add(mechaniс3);
+        mechaniсList.add(mechaniс4);
+
         Car[] cars = new Car[4];
-        cars[0] = new Car("Audi", "A8 50 L TDI quattro", 3.0, driverB1, Car.BodyType.SEDAN);
-        cars[1] = new Car("BMW", "Z8", 0, driverB2, Car.BodyType.HATCHBACK);
-        cars[2] = new Car("Kia", "Sportage 4-го поколения", 2.4, driverB3, Car.BodyType.COUPE);
-        cars[3] = new Car("Hyundai", "Avante", 1.6, driverB4, Car.BodyType.SEDAN);
+        cars[0] = new Car("Audi", "A8 50 L TDI quattro", 3.0, driverB1, Car.BodyType.SEDAN, mechaniсList);
+        cars[1] = new Car("BMW", "Z8", 0, driverB2, Car.BodyType.HATCHBACK, mechaniсList);
+        cars[2] = new Car("Kia", "Sportage 4-го поколения", 2.4, driverB3, Car.BodyType.COUPE, mechaniсList);
+        cars[3] = new Car("Hyundai", "Avante", 1.6, driverB4, Car.BodyType.SEDAN, mechaniсList);
 
         Bus[] buses = new Bus[4];
-        buses[0] = new Bus("Волжанин", "городской", 3.0, driverD1, Bus.BodyType.LARGE);
-        buses[1] = new Bus("BMW", "120", 4.2, driverD2, Bus.BodyType.VERY_SMALL);
-        buses[2] = new Bus("Mercedes", "s12", 5.0, driverD3, Bus.BodyType.SMALL);
-        buses[3] = new Bus("Mercedes", "s25", 5.5, driverD4, Bus.BodyType.VERY_LARGE);
+        buses[0] = new Bus("Волжанин", "городской", 3.0, driverD1, Bus.BodyType.LARGE, mechaniсList);
+        buses[1] = new Bus("BMW", "120", 4.2, driverD2, Bus.BodyType.VERY_SMALL, mechaniсList);
+        buses[2] = new Bus("Mercedes", "s12", 5.0, driverD3, Bus.BodyType.SMALL, mechaniсList);
+        buses[3] = new Bus("Mercedes", "s25", 5.5, driverD4, Bus.BodyType.VERY_LARGE, mechaniсList);
 
         Truck[] trucks = new Truck[4];
-        trucks[0] = new Truck("Volvo", "North", 12.8, driverC1, Truck.BodyType.N2);
-        trucks[1] = new Truck("Mercedes", "Europe", 14.2, driverC2, Truck.BodyType.N2);
-        trucks[2] = new Truck("Mercedes", "S12", 15.6, driverC3, Truck.BodyType.N3);
-        trucks[3] = new Truck("Volvo", "Europe North", 16.1, driverC4, Truck.BodyType.N1);
+        trucks[0] = new Truck("Volvo", "North", 12.8, driverC1, Truck.BodyType.N2, mechaniсList);
+        trucks[1] = new Truck("Mercedes", "Europe", 14.2, driverC2, Truck.BodyType.N2, mechaniсList);
+        trucks[2] = new Truck("Mercedes", "S12", 15.6, driverC3, Truck.BodyType.N3, mechaniсList);
+        trucks[3] = new Truck("Volvo", "Europe North", 16.1, driverC4, Truck.BodyType.N1, mechaniсList);
+
+
+        List<Transport<?>> transportsList = new ArrayList<>();
+        transportsList.add(cars[0]);
+        transportsList.add(cars[1]);
+        transportsList.add(cars[2]);
+        transportsList.add(cars[3]);
+        transportsList.add(buses[0]);
+        transportsList.add(buses[1]);
+        transportsList.add(buses[2]);
+        transportsList.add(buses[3]);
+        transportsList.add(trucks[0]);
+        transportsList.add(trucks[1]);
+        transportsList.add(trucks[2]);
+        transportsList.add(trucks[3]);
 
 
         trucks[1].maxSpeed();
@@ -54,6 +83,18 @@ public class Main {
         checkTransportDiagnostic(cars[1]);
         checkTransportDiagnostic(trucks[3]);
         checkTransportDiagnostic(cars[2]);
+        treansportInfo(buses[2]);
+        ServiceStation serviceStation = new ServiceStation();
+        serviceStation.addAutoQueue(cars[1]);
+        serviceStation.addAutoQueue(cars[2]);
+        serviceStation.addAutoQueue(cars[3]);
+        serviceStation.addAutoQueue(cars[0]);
+        serviceStation.addAutoQueue(buses[2]);
+        serviceStation.addAutoQueue(buses[0]);
+        serviceStation.addAutoQueue(buses[3]);
+        serviceStation.addAutoQueue(trucks[1]);
+        serviceStation.addAutoQueue(trucks[2]);
+        serviceStation.carryOutMaintenance();
     }
 
     public static void printMass(Transport<?>[] transports) {
@@ -80,5 +121,10 @@ public class Main {
                 System.out.println(" ");
             }
         }
+    }
+
+    public static void treansportInfo(Transport<?> transports) {
+        System.out.println(transports.getBrand() + " " + transports.getModel() + " Водитель: " +
+                transports.getDriver().getDriverName() + " " + transports.getMechaniсsList() );
     }
 }

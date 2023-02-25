@@ -2,9 +2,13 @@ package transport;
 
 import driver.DriverD;
 
+import java.util.List;
+
 public class Bus extends Transport<DriverD> {
 
     BodyType bodyType;
+
+    List<Mechaniс> busMechaniсsList;
 
     public enum BodyType {
         VERY_SMALL(null, 10),
@@ -28,8 +32,8 @@ public class Bus extends Transport<DriverD> {
         }
     }
 
-    public Bus(String brand, String model, double engineCapacity, DriverD driver, BodyType bodyType) {
-        super(brand, model, engineCapacity, driver);
+    public Bus(String brand, String model, double engineCapacity, DriverD driver, BodyType bodyType, List<Mechaniс> mechaniсsList) {
+        super(brand, model, engineCapacity, driver, mechaniсsList);
         this.bodyType = bodyType;
     }
 
