@@ -68,6 +68,24 @@ public class Main {
         transportsList.add(trucks[2]);
         transportsList.add(trucks[3]);
 
+        HashSet<Driver> driverList = new HashSet<>();
+        driverList.add(driverB1);
+        driverList.add(driverB2);
+        driverList.add(driverB2);
+        driverList.add(driverB3);
+        driverList.add(driverB3);
+        driverList.add(driverB4);
+        driverList.add(driverC1);
+        driverList.add(driverC1);
+        driverList.add(driverC2);
+        driverList.add(driverC3);
+        driverList.add(driverC4);
+        driverList.add(driverD1);
+        driverList.add(driverD2);
+        driverList.add(driverD3);
+        driverList.add(driverD4);
+        driverList.add(driverD4);
+
 
         trucks[1].maxSpeed();
         buses[2].bestTime();
@@ -95,6 +113,11 @@ public class Main {
         serviceStation.addAutoQueue(trucks[1]);
         serviceStation.addAutoQueue(trucks[2]);
         serviceStation.carryOutMaintenance();
+
+        System.out.println("Список водителей добавленных в HeshSet: ");
+        for (Driver driver : driverList) {
+            System.out.println(driver.getDriverName());
+        }
     }
 
     public static void printMass(Transport<?>[] transports) {
@@ -125,6 +148,6 @@ public class Main {
 
     public static void treansportInfo(Transport<?> transports) {
         System.out.println(transports.getBrand() + " " + transports.getModel() + " Водитель: " +
-                transports.getDriver().getDriverName() + " " + transports.getMechaniсsList() );
+                transports.getDriver().getDriverName() + " " + transports.getMechaniсsList());
     }
 }
