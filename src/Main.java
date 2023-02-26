@@ -86,6 +86,14 @@ public class Main {
         driverList.add(driverD4);
         driverList.add(driverD4);
 
+        HashMap<Transport<?>, List<Mechaniс>> hashMapTransport= new HashMap<>();
+        hashMapTransport.put(cars[0], mechaniсList);
+        hashMapTransport.put(cars[1], mechaniсList);
+        hashMapTransport.put(cars[2], mechaniсList);
+        hashMapTransport.put(cars[3], mechaniсList);
+
+
+
 
         trucks[1].maxSpeed();
         buses[2].bestTime();
@@ -117,6 +125,10 @@ public class Main {
         System.out.println("Список водителей добавленных в HeshSet: ");
         for (Driver driver : driverList) {
             System.out.println(driver.getDriverName());
+        }
+
+        for (Map.Entry<Transport<?>, List<Mechaniс>> hash : hashMapTransport.entrySet()) {
+            System.out.println(hash.getKey() + " " + hash.getValue());
         }
     }
 
