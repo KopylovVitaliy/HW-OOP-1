@@ -24,4 +24,5 @@ public class DriverB extends Driver {
     public void refuel() {
         System.out.println("Водитель легкового автомобиля " + getDriverName() + " заправляет автомобиль.");
     }
+
 }

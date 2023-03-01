@@ -1,5 +1,7 @@
 package driver;
 
+import java.util.Objects;
+
 public abstract class Driver implements Skill {
     private String DriverName;
     private boolean driverLicense;
@@ -37,5 +39,18 @@ public abstract class Driver implements Skill {
         return DriverName + (driverLicense ? ", водительские права имеются" : ", водительских прав не имеет") +
                 ", опыт вождения = " + driverExperience +
                 " лет.";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver driver = (Driver) o;
+        return driverLicense == driver.driverLicense && driverExperience == driver.driverExperience && Objects.equals(DriverName, driver.DriverName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(DriverName, driverLicense, driverExperience);
     }
 }

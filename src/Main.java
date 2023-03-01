@@ -68,6 +68,30 @@ public class Main {
         transportsList.add(trucks[2]);
         transportsList.add(trucks[3]);
 
+        Set<Driver> driverList = new LinkedHashSet<>();
+        driverList.add(driverB1);
+        driverList.add(driverB2);
+        driverList.add(driverB2);
+        driverList.add(driverB3);
+        driverList.add(driverB3);
+        driverList.add(driverB4);
+        driverList.add(driverC1);
+        driverList.add(driverC1);
+        driverList.add(driverC2);
+        driverList.add(driverC3);
+        driverList.add(driverC4);
+        driverList.add(driverD1);
+        driverList.add(driverD2);
+        driverList.add(driverD3);
+        driverList.add(driverD4);
+        driverList.add(driverD4);
+
+        HashMap<Transport<?>, List<Mechaniс>> hashMapTransport = new HashMap<>();
+        hashMapTransport.put(cars[0], mechaniсList);
+        hashMapTransport.put(cars[1], mechaniсList);
+        hashMapTransport.put(cars[2], mechaniсList);
+        hashMapTransport.put(cars[3], mechaniсList);
+
 
         trucks[1].maxSpeed();
         buses[2].bestTime();
@@ -84,6 +108,7 @@ public class Main {
         checkTransportDiagnostic(trucks[3]);
         checkTransportDiagnostic(cars[2]);
         treansportInfo(buses[2]);
+
         ServiceStation serviceStation = new ServiceStation();
         serviceStation.addAutoQueue(cars[1]);
         serviceStation.addAutoQueue(cars[2]);
@@ -95,6 +120,16 @@ public class Main {
         serviceStation.addAutoQueue(trucks[1]);
         serviceStation.addAutoQueue(trucks[2]);
         serviceStation.carryOutMaintenance();
+
+        System.out.println("Список водителей добавленных в HeshSet: ");
+        Iterator<Driver> iterDrivers = driverList.iterator();
+        while (iterDrivers.hasNext()) {
+            System.out.println(iterDrivers.next());
+        }
+
+        for (Map.Entry<Transport<?>, List<Mechaniс>> hash : hashMapTransport.entrySet()) {
+            System.out.println(hash.getKey() + " " + hash.getValue());
+        }
     }
 
     public static void printMass(Transport<?>[] transports) {
@@ -125,6 +160,6 @@ public class Main {
 
     public static void treansportInfo(Transport<?> transports) {
         System.out.println(transports.getBrand() + " " + transports.getModel() + " Водитель: " +
-                transports.getDriver().getDriverName() + " " + transports.getMechaniсsList() );
+                transports.getDriver().getDriverName() + " " + transports.getMechaniсsList());
     }
 }
