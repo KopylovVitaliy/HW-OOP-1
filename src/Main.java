@@ -68,7 +68,7 @@ public class Main {
         transportsList.add(trucks[2]);
         transportsList.add(trucks[3]);
 
-        HashSet<Driver> driverList = new HashSet<>();
+        Set<Driver> driverList = new LinkedHashSet<>();
         driverList.add(driverB1);
         driverList.add(driverB2);
         driverList.add(driverB2);
@@ -86,13 +86,11 @@ public class Main {
         driverList.add(driverD4);
         driverList.add(driverD4);
 
-        HashMap<Transport<?>, List<Mechaniс>> hashMapTransport= new HashMap<>();
+        HashMap<Transport<?>, List<Mechaniс>> hashMapTransport = new HashMap<>();
         hashMapTransport.put(cars[0], mechaniсList);
         hashMapTransport.put(cars[1], mechaniсList);
         hashMapTransport.put(cars[2], mechaniсList);
         hashMapTransport.put(cars[3], mechaniсList);
-
-
 
 
         trucks[1].maxSpeed();
@@ -110,6 +108,7 @@ public class Main {
         checkTransportDiagnostic(trucks[3]);
         checkTransportDiagnostic(cars[2]);
         treansportInfo(buses[2]);
+
         ServiceStation serviceStation = new ServiceStation();
         serviceStation.addAutoQueue(cars[1]);
         serviceStation.addAutoQueue(cars[2]);
@@ -123,8 +122,9 @@ public class Main {
         serviceStation.carryOutMaintenance();
 
         System.out.println("Список водителей добавленных в HeshSet: ");
-        for (Driver driver : driverList) {
-            System.out.println(driver.getDriverName());
+        Iterator<Driver> iterDrivers = driverList.iterator();
+        while (iterDrivers.hasNext()) {
+            System.out.println(iterDrivers.next());
         }
 
         for (Map.Entry<Transport<?>, List<Mechaniс>> hash : hashMapTransport.entrySet()) {

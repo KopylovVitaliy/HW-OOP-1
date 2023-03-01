@@ -6,7 +6,7 @@ public class DriverD extends Driver{
     }
     @Override
     public String toString() {
-        return "Водитель категории В: " + super.toString();
+        return "Водитель категории D: " + super.toString();
     }
 
     @Override
